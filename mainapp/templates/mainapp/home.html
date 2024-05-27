@@ -1,0 +1,43 @@
+{% extends 'mainapp/header.html' %}
+{% load static %}
+{% block content %}
+    <div class="container mt-4">
+        <!-- Display 'theater' in a blue rounded box -->
+        <div class="alert alert-primary rounded text-center" role="alert">
+            <strong>All events</strong>
+        </div>
+
+        <div class="row">
+            {% for event in all_events %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <!-- Event Image -->
+                        <img src="{% static event.event_logo %}" class="card-img-top custom-card-img" alt="{{ event.name }}">
+                        
+                        <div class="card-body"> <!-- Light blue background color -->
+                            <!-- Event Name -->
+                            <h5 class="card-title">{{ event.name }}</h5>
+                            
+                            <!-- Event Venue -->
+                            <p class="card-text">Venue: {{ event.venue }}</p>
+                            <a href="{% url 'event_detail' id=event.id %}" class="btn btn-info">Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Custom CSS for the image size -->
+    <style>
+        .custom-card-img {
+            height: 180px; /* Adjust the height as needed */
+            object-fit: cover;
+        }
+        .card-body{
+            background-color: #a8d5e9;
+            width: 18rem;
+            height: 12rem;
+        }
+    </style>
+{% endblock %}

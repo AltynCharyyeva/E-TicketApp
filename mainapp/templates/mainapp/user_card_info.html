@@ -1,0 +1,63 @@
+{% extends 'mainapp/header.html' %}
+{% block content %}
+    <style>
+        .card-container {
+            background-color: #91a6e5; /* Light blue background color */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .card-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4c8baf;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #4559a0;
+        }
+    </style>
+    <div class="card-container">
+        <h2>Enter Card Information</h2>
+        <form action="{% url 'make_reservation' id=event.id nr_bilete=nr_bilete %}" method="post" class="card-form">
+            {% csrf_token %}
+           <div><p>Total ticket price: {{total_price}}0 RON</p></div>
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+
+            <label for="expiryDate">Expiry Date:</label>
+            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+
+            <button type="submit">Make reservation</button>
+        </form>
+    </div>
+{% endblock %}

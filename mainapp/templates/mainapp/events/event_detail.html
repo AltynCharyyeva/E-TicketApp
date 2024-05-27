@@ -1,0 +1,77 @@
+{% extends 'mainapp/header.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    #venue {
+        color: darkblue;
+    }
+
+    /* Set a stable size for the picture */
+    .event-logo {
+        max-height: 350px;
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    /* Style for the light blue box */
+    .event-details-container {
+        background-color: #add8e6; /* Light blue color */
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        position: relative; /* Ensure relative positioning for absolute child elements */
+    }
+
+    /* Style for the rounded pill */
+    .rounded-pill-box {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 5px; /* Adjust padding for better visibility */
+        border-radius: 10px;
+        background-color: #add8e6;
+        color: black;
+    }
+    .information{
+        color: darkblue;
+    }
+</style>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <!-- Event Logo -->
+            <img src="{% static event.event_logo %}" alt="{{ event.name }}" class="event-logo mb-3">
+
+            <!-- Event Details Container -->
+            <div class="event-details-container">
+                <!-- Event Type -->
+                <div class="rounded-pill-box">
+                    {{ event.type }}
+                </div>
+
+                <!-- Event Name -->
+                <h1 class="text-center">{{ event.name }}</h1>          
+                <!-- Event Description -->
+                <p>{{ event.description |linebreaks}}</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <!-- Ticket Box -->
+            <div class="border rounded p-3 bg-primary-subtle">
+                <h3 class="information">Date and Location</h3>
+                <!-- Ticket Location -->
+                <p id="venue"><strong>Location:</strong> {{ event.venue.name }}</p>
+                <p id="venue"><strong>Date:</strong> {{ event.date }}</p>
+                <p id="venue"> <a href="{{ event.venue.map_location }}">See on the map</a></p>
+
+                <!-- "Tickets" Button -->
+                <a href="{% url 'tickets' id=event.id %}" class="btn btn-info">Get Ticket</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'mainapp/header.html' %}
+{% block content %}
+
+<div style="background-color: #add8e6; padding: 15px; border-radius: 10px;">
+  <h2 style="color: #004080;">Event: {{ event.name }}</h2>
+  <p style="color: #004080;">Event Date: {{ event.date }}</p>
+  <!-- Display other event details as needed -->
+
+  <form method="post" action="{% url 'tickets' event.id %}" id="reservationForm">
+    {% csrf_token %}
+    
+    <label for="nr_bilete" style="color: #004080;">Number of Tickets:</label>
+    <select name="nr_bilete" id="nr_bilete" required>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    
+    <!-- Display the price of the ticket -->
+    <p style="color: #004080;">Price per Ticket: {{ ticket_price }}</p>
+
+    <!-- Hidden input field to store the selected number of tickets -->
+    <input type="hidden" name="selected_tickets" id="selected_tickets" value="1">
+    <div>
+      <p style="color: #052b4f;"><strong>{{event.total_tickets}} tickets are available</strong></p>
+    </div>
+
+    <!-- Use JavaScript to update the hidden input field with the selected value -->
+    <script>
+      document.getElementById('nr_bilete').addEventListener('change', function() {
+        document.getElementById('selected_tickets').value = this.value;
+      });
+    </script>
+
+    <!-- Use a button for the submit action -->
+    <button class="btn btn-info" type="submit">Reserve</button>
+  </form>
+</div>
+
+{% endblock %}

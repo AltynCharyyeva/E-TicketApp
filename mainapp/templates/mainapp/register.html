@@ -1,0 +1,45 @@
+{% extends 'mainapp/header.html' %}
+{% block content %}
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        .registration-container {
+            background-color: #87CEEB; /* Medium blue box color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Set a specific width for the box */
+            margin: auto; /* Center the box horizontally */
+            margin-top: 50px; /* Add some top margin for spacing */
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <form class="row g-3" method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" name="email">
+            </div>
+            <div class="col-md-12">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" name="username">
+            </div>
+            <div class="col-md-12">
+                <label for="inputPassword4" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" name="password1">
+            </div>
+            <div class="col-md-12">
+                <label for="inputPassword4" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="inputPassword4" name="password2">
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-info">Register</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Page</title>
+        <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+        <style>
+            #elem1 {
+                color: red;
+            }
+            .baz {
+                color: brown;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="elem1" style="color: aquamarine;">Welcome to my Web Page</h1>
+        <h1 >Unordered list</h1>
+        <ul>
+            <li>One Item</li>
+            <li>Another Item</li>
+            <li>Yet Another Item</li>
+        </ul>
+        <h1 class="baz">
+            An ordered list
+        </h1>
+        <h2 class="baz">This is a smaller heading</h2>
+        <h6>Smallest heading</h6>
+        <ol>
+            <li>First Item</li>
+            <li>Second Item</li>
+            <li>Third Item</li>
+        </ol>
+        <img src="{% static 'img/gus.jpeg' %}" alt="Image" width="100">
+        <a href="/static/img/gus.jpeg">Click here</a>
+
+       
+        <table >
+            <thead>
+                <tr>
+                    <th>Ocean</th>
+                    <th>Average depth</th>
+                    <th>Maximum Depth</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pacific Ocean</td>
+                    <td>4,280 m</td>
+                    <td>10,911</td>
+                </tr>
+                <tr>
+                    <td>Atlantic Ocean</td>
+                    <td>3, 646</td>
+                    <td>8, 486</td>
+                </tr>
+            </tbody>
+        </table>
+     
+
+        <form>
+            <div>
+                <input type="text" placeholder="Full Name" name="name">
+                <input type="password" placeholder="Password" name="password">
+            </div>
+            <div>
+               Favorite color?
+               <input name="color" type="radio" value="red"> Red
+               <input name="color" type="radio" value="green"> Green 
+               <input name="color" type="radio" value="blue"> Blue
+               <input name="color" type="radio" value="other"> Other
+            </div>
+            <div>
+                <input name="country" list="countries" placeholder="Country">
+                <datalist id="countries">
+                    <option value="Afghanistan">
+                    <option value="Albania">
+                    <option value="United States">
+                    <option value="Romania">
+                    <option value="Turkmenistan">
+                </datalist>
+            </div>
+            <input type="submit">
+        </form>
+    </body>
+</html>

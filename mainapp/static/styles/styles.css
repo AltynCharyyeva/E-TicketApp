@@ -1,0 +1,21 @@
+h1 {
+    color: goldenrod;
+    text-align: center;
+}
+ul {
+    background-color: lightblue;
+    width: 300px;
+    height: 100px;
+    padding: 100px; /* inside of the border of the element (padding inside of the element)*/
+    margin: 20px;  /* outside of the border of the element(to space the element from other elements)*/
+}
+table{
+    font-family: Arial;
+    font-size: 20px;
+    border: 2px solid blueviolet;
+    border-collapse: collapse;
+}
+td, th{
+    border: 1px solid blueviolet;
+    padding: 5px;
+}

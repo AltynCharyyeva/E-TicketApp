@@ -1,0 +1,48 @@
+{% load static %}
+<style>
+    .ticket-details {
+        background-color: #add8e6; /* Light blue background */
+        border-radius: 10px;
+        padding: 20px;
+        margin: 50px auto;
+        max-width: 400px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .ticket-title {
+        color: darkcyan;
+        font-size: 25;
+        margin-bottom: 20px;
+    }
+
+    .reservation-info {
+        color: rgb(29, 30, 30);
+        background-color: rgb(124, 178, 233);
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .user-info {
+        margin-top: 15px;
+    }
+</style>
+
+<div class="ticket-details">
+    <!-- Display Reservation Information -->
+    <div class="ticket-title">Reservation Details</div>
+    <div class="reservation-info">
+        <p><strong>Date:</strong> {{ reservation.reservation_date }}</p>
+        <p><strong>Quantity:</strong> {{ reservation.ticket_quantity }}</p>
+    </div>
+
+    <!-- User Information -->
+    <div class="user-info">
+        <p><strong>User:</strong> {{ user.username }}</p>
+        <!-- Add additional user information as needed -->
+        <p><strong>{{reservation.event.name}}</strong></p>
+        <img src="{% static reservation.event.event_logo %}" alt="Event Logo" width="250" height="100">
+    </div>
+</div>
+
