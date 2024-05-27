@@ -4,10 +4,10 @@ The E-Ticket App is a web application developed using Django for the Backend, HT
 
 # Features
 
--- User Authentication: Secure registration and login system for users.
--- Ticket Management: Users can view, purchase, and manage their electronic tickets easily.
--- Event Listings: Browse through a curated list of events and activities, each with detailed information and ticket options.
--- Responsive Design: Ensures seamless user experience across different devices and screen sizes.
+- User Authentication: Secure registration and login system for users.
+- Ticket Management: Users can view, purchase, and manage their electronic tickets easily.
+- Event Listings: Browse through a curated list of events and activities, each with detailed information and ticket options.
+- Responsive Design: Ensures seamless user experience across different devices and screen sizes.
 
 # Technologies Used
 - Django: A high-level Python web framework for rapid development.
